@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | Root Solutions</title>
+  <meta name="description" content="Contact Root Solutions for on-demand services or AMC inquiries across electrical, plumbing, carpentry, and civil categories." />
+  <link rel="canonical" href="https://www.rootsolutions.in/contact.html" />
+
+  <link rel="preconnect" href="https://api.rootsolutions.in" crossorigin>
+  <link rel="dns-prefetch" href="https://api.rootsolutions.in">
+
+  <meta property="og:title" content="Contact | Root Solutions" />
+  <meta property="og:description" content="Get in touch for reliable maintenance and AMC services with verified technicians." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.rootsolutions.in/contact.html" />
+  <meta property="og:image" content="https://www.rootsolutions.in/images/og-banner.jpg" />
+
+  <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="Root Solutions Logo" width="120" height="60" />
+    <h1>Contact Root Solutions</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="service.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <section class="card">
+      <h2>Get in Touch</h2>
+      <form id="contactForm" novalidate>
+        <label for="name">Full Name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required />
+
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+
+        <p class="success" id="successMessage" role="status" aria-live="polite">
+          ✅ Thank you! Your message has been received.
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer style="margin-top: 40px;">
+    <hr />
+    <p>&copy; 2025 Root Solutions | We’ll get back shortly.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const success = document.getElementById("successMessage");
+
+    function showSuccess() {
+      success.style.display = "block";
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const payload = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        message: form.message.value.trim()
+      };
+
+      try {
+        const response = await fetch("https://api.rootsolutions.in/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+          mode: "cors",
+          credentials: "omit"
+        });
+
+        if (!response.ok) throw new Error("Network response was not ok");
+
+        showSuccess();
+        form.reset();
+        setTimeout(() => {
+          window.location.href = "success.html";
+        }, 600);
+      } catch (err) {
+        alert("❌ Something went wrong. Please try again later.");
+      }
+    });
+  </script>
+</body>
+</html>
