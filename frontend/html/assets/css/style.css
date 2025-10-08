@@ -1,0 +1,153 @@
+/* Root Solutions Global Styles */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #0077cc;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+header img {
+  height: 60px;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+nav {
+  background-color: #f0f0f0;
+  padding: 0.75rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #0077cc;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #004a88;
+}
+
+section {
+  padding: 2rem 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2 {
+  color: #0077cc;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li::before {
+  content: "✔";
+  margin-right: 10px;
+  color: #28a745;
+}
+
+footer {
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #ccc;
+  color: #555;
+}
+
+/* Contact Form Specific */
+.container {
+  max-width: 500px;
+  background: #fff;
+  padding: 2rem;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  margin-top: 2rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.9rem;
+  margin: 0.5rem 0 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #0077cc;
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+.success {
+  display: none;
+  background-color: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header, nav, section {
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 8px;
+  }
+  
+  .container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
